@@ -289,41 +289,6 @@
   .j-step.current{background:var(--green-soft)}
   .j-step.current .out{background:var(--surface); color:var(--green-ink); border-color:transparent}
 
-  /* ---------- Deploy ---------- */
-  .deploy-grid{display:grid; grid-template-columns:1.02fr .98fr; gap:16px; align-items:start}
-  @media (max-width:900px){ .deploy-grid{grid-template-columns:1fr} }
-  .deploy-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg); padding:24px}
-  .deploy-card h3{font-size:17px; font-weight:800; margin-bottom:14px}
-  .steps{margin:0; padding:0; list-style:none; display:grid; gap:15px; counter-reset:st}
-  .steps li{display:flex; gap:13px; font-size:14.5px; color:var(--ink-2)}
-  .steps li::before{
-    counter-increment:st; content:counter(st); flex:none; width:26px; height:26px; border-radius:50%;
-    background:var(--ink); color:var(--bg); font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700;
-    display:grid; place-items:center; margin-top:1px;
-  }
-  .steps li strong{color:var(--ink)}
-  .steps code, .dns code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:1px 6px; word-break:break-all}
-  .dns-row{display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); font-size:13.5px}
-  .dns-row:last-of-type{border-bottom:none}
-  .dns-row .rec{flex:1; min-width:0}
-  .dns-row .rec b{display:block; font-size:13px}
-  .dns-row .rec span{color:var(--muted); font-size:12.5px; word-break:break-all}
-  .copy-btn{
-    flex:none; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
-    font-family:"Inter",sans-serif; font-weight:700; font-size:12.5px; border-radius:8px; padding:7px 12px; cursor:pointer;
-  }
-  .copy-btn:hover{border-color:var(--green); color:var(--green-ink)}
-  .copy-btn.copied{background:var(--green); border-color:var(--green); color:#fff}
-  .deploy-note{font-size:13.5px; color:var(--muted); margin:14px 0 0}
-  .download-box{
-    margin-top:16px; background:var(--ink); color:var(--bg); border-radius:var(--radius-lg); padding:24px;
-    display:flex; gap:18px; align-items:center; flex-wrap:wrap;
-  }
-  .download-box h3{color:var(--bg); font-size:17px; margin-bottom:4px}
-  .download-box p{margin:0; font-size:14px; opacity:.75; max-width:52ch}
-  .download-box .btn{margin-left:auto; background:var(--green); color:#fff}
-  @media (max-width:640px){ .download-box .btn{margin-left:0} }
-
   /* ---------- Contact / footer ---------- */
   .contact{
     margin-top:76px; background:var(--green-dark); color:#eaf6ee; border-radius:26px; padding:clamp(28px,5vw,52px);
@@ -375,7 +340,6 @@
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#journey">Journey</a>
-      <a href="#deploy">Go live</a>
       <a class="nav-cta" href="#contact">Work with me</a>
     </nav>
   </div>
@@ -681,48 +645,6 @@
     </div>
   </section>
 
-  <!-- ================= DEPLOY ================= -->
-  <section id="deploy">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="tag-label">barshon.me</span>
-        <h2>Putting this site live on GitHub Pages</h2>
-        <p>This page is a single static HTML file — exactly what GitHub Pages serves for free, with free HTTPS. The repository <code>Barshon13.github.io</code> is already created and already contains a CNAME for barshon.me — only the <code>index.html</code> is missing. Domain claimed through Namecheap for Education (GitHub Student Pack); the Namecheap SSL stays unused, because GitHub issues its own certificate.</p>
-      </div>
-      <div class="deploy-grid">
-        <div class="deploy-card">
-          <h3>Publish in 5 steps</h3>
-          <ol class="steps">
-            <li><span><strong>Repo — already done.</strong> Your public repository <code>Barshon13.github.io</code> exists, and its <code>CNAME</code> file for <code>barshon.me</code> is already in place.</span></li>
-            <li><span><strong>Add this file.</strong> Download this page below and upload it to that repo as <code>index.html</code>. Nothing else needs to change in the repo.</span></li>
-            <li><span><strong>Turn on Pages.</strong> Repo → Settings → Pages → deploy from the <code>main</code> branch, root folder. Custom domain: <code>barshon.me</code>.</span></li>
-            <li><span><strong>Set the DNS</strong> in Namecheap (Domain List → barshon.me → Advanced DNS) using the records on the right.</span></li>
-            <li><span><strong>Enforce HTTPS.</strong> After DNS propagates (up to 24 hours), tick “Enforce HTTPS” in the same Pages settings — the certificate is free and automatic.</span></li>
-          </ol>
-          <div class="download-box" style="margin-top:20px">
-            <div>
-              <h3>Get the file</h3>
-              <p>Downloads this exact page as a ready-to-upload <span class="mono">index.html</span>.</p>
-            </div>
-            <button class="btn" type="button" id="download-btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
-              Download index.html
-            </button>
-          </div>
-        </div>
-        <div class="deploy-card dns">
-          <h3>Namecheap DNS records</h3>
-          <div class="dns-row"><div class="rec"><b>A record · Host: @</b><span>185.199.108.153</span></div><button class="copy-btn" type="button" data-copy="185.199.108.153">Copy</button></div>
-          <div class="dns-row"><div class="rec"><b>A record · Host: @</b><span>185.199.109.153</span></div><button class="copy-btn" type="button" data-copy="185.199.109.153">Copy</button></div>
-          <div class="dns-row"><div class="rec"><b>A record · Host: @</b><span>185.199.110.153</span></div><button class="copy-btn" type="button" data-copy="185.199.110.153">Copy</button></div>
-          <div class="dns-row"><div class="rec"><b>A record · Host: @</b><span>185.199.111.153</span></div><button class="copy-btn" type="button" data-copy="185.199.111.153">Copy</button></div>
-          <div class="dns-row"><div class="rec"><b>CNAME record · Host: www</b><span>Barshon13.github.io</span></div><button class="copy-btn" type="button" data-copy="Barshon13.github.io">Copy</button></div>
-          <p class="deploy-note">Your GitHub username is <code>Barshon13</code>, so the www record points at <code>Barshon13.github.io</code> exactly as shown. Remove any old parking or URL-redirect records for <code>@</code> and <code>www</code> first, or the new records won't take effect.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= CONTACT ================= -->
   <div class="wrap">
     <div class="contact" id="contact">
@@ -792,30 +714,12 @@
       document.body.removeChild(ta); done();
     }
   }
-  var copyBtns = document.querySelectorAll('.copy-btn');
-  for (var i = 0; i < copyBtns.length; i++){
-    (function(btn){
-      btn.addEventListener('click', function(){ copyText(btn.getAttribute('data-copy'), btn); });
-    })(copyBtns[i]);
-  }
   var fiverrBtn = document.getElementById('copy-fiverr');
   var fiverrLabel = document.getElementById('copy-fiverr-label');
   fiverrBtn.addEventListener('click', function(){
     copyText('hossainbarshon', null);
     fiverrLabel.textContent = 'Copied — paste it into Fiverr search';
     setTimeout(function(){ fiverrLabel.textContent = 'Copy my Fiverr username'; }, 2200);
-  });
-
-  // Download this page as index.html for GitHub Pages
-  document.getElementById('download-btn').addEventListener('click', function(){
-    var html = '<!doctype html>\n' + document.documentElement.outerHTML;
-    var blob = new Blob([html], { type: 'text/html' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'index.html';
-    document.body.appendChild(a); a.click();
-    document.body.removeChild(a);
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
   });
 
   // Scroll-spy for nav
@@ -831,7 +735,7 @@
         }
       });
     }, { rootMargin: '-35% 0px -55% 0px' });
-    ['about','services','work','skills','journey','deploy'].forEach(function(id){
+    ['about','services','work','skills','journey'].forEach(function(id){
       var el = document.getElementById(id);
       if (el) obs.observe(el);
     });
