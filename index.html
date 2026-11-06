@@ -332,9 +332,12 @@
   @media (prefers-color-scheme: dark){ .contact{background:#12351f} }
   .contact h2{font-size:clamp(27px,4.6vw,42px); font-weight:900; max-width:20ch; margin-bottom:12px; color:#fff}
   .contact p{max-width:56ch; color:#cfe8d6; margin:0 0 26px; font-size:16.5px}
-  .contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-  @media (max-width:820px){ .contact-grid{grid-template-columns:1fr} }
+  .contact-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+  @media (max-width:1020px){ .contact-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .contact-grid{grid-template-columns:1fr} }
   .contact-item{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:var(--radius-md); padding:17px 18px}
+  a.contact-item{display:block; text-decoration:none; transition:background .15s ease, border-color .15s ease}
+  a.contact-item:hover{background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.32)}
   .contact-item span{font-size:12px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#a9d8ba; display:block; margin-bottom:5px}
   .contact-item b{font-size:16.5px; color:#fff; display:block}
   .contact-item small{color:#cfe8d6; font-size:13px}
@@ -727,6 +730,7 @@
       <p>I'll return it clean, checked, and ready to use — with a short log of everything that changed. The fastest way to reach me is through my Fiverr gig for data entry and Excel data cleaning.</p>
       <div class="contact-grid">
         <div class="contact-item"><span>Fiverr</span><b>@hossainbarshon</b><small>Search this username on Fiverr — gig: “do accurate data entry and excel data cleaning”</small></div>
+        <a class="contact-item" href="https://www.linkedin.com/in/barshon-hossain" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><b>Barshon Hossain</b><small>linkedin.com/in/barshon-hossain — connect with me on LinkedIn</small></a>
         <div class="contact-item"><span>Website</span><b class="mono">barshon.me</b><small>This page — bookmark it for new portfolio projects</small></div>
         <div class="contact-item"><span>Location</span><b>Jashore, Bangladesh</b><small>Remote work, flexible across time zones</small></div>
       </div>
